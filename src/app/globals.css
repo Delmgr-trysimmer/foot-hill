@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --navy: #1A365D;
+    --orange: #F68B1E;
+    --blue: #00AEEF;
+    --bg-dark: #12223a; /* Deep Navy background for Dark Mode feel */
+    --text-light: #f8fafc; /* Near white for Contrast */
+    --text-muted: #94a3b8; /* Muted slate for non-critical text */
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+    background: var(--bg-dark);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Sen', sans-serif;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .text-navy { color: #1A365D; }
+  .text-orange { color: #F68B1E; }
+  .text-blue-accent { color: #00AEEF; }
+  .bg-navy { background-color: #1A365D; }
+  .bg-dark-section { background-color: #12223a; }
+  .bg-navy-elevated { background-color: #1a3050; }
+  .bg-orange { background-color: #F68B1E; }
+  .bg-blue-accent { background-color: #00AEEF; }
+  .border-navy { border-color: #1A365D; }
+  .border-orange { border-color: #F68B1E; }
+  .gradient-navy { background: linear-gradient(135deg, #1A365D 0%, #0f1c2e 100%); }
+  .gradient-hero { background: linear-gradient(to bottom, rgba(26,54,93,0.85) 0%, rgba(26,54,93,0.65) 100%); }
+}
