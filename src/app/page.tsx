@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Phone, MapPin, Clock, ChevronDown, Menu, X, Star, Play, ChevronRight, ChevronLeft, ArrowRight, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
 
 // ─── Motion helpers (lightweight fade-in on scroll) ──────────────────────────
 function useFadeIn(threshold = 0.15) {
@@ -132,7 +133,7 @@ function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'brightness(0.45)' }}
       >
-        <source src="/video/hero-video.mp4" type="video/mp4" />
+        <source src="/video.mp4" type="video/mp4" />
       </video>
       {/* Dynamic Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#12223a]/60 via-transparent to-[#12223a]/90" />
@@ -218,9 +219,9 @@ function About() {
             <div className="relative">
               <div className="rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.5)] border border-white/10 p-2 bg-white/5 backdrop-blur-sm">
                 <img 
-                   src="/image/about-image.jpeg" 
+                   src="/team-2.jpeg" 
                    alt="Foothill Dentistry" 
-                   className="w-full h-[550px] object-cover rounded-[2.1rem]" 
+                   className="w-full h-[550px] object-cover object-top rounded-[2.1rem]" 
                    onError={(e) => { (e.target as HTMLImageElement).src = `https://placehold.co/800x1200/1A365D/white?text=Our+Office`; }}
                 />
               </div>
@@ -420,9 +421,11 @@ function Services() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {services.map((s, i) => (
             <FadeIn key={s.title} delay={i * 0.05}>
-              <div className="group relative overflow-hidden rounded-[2rem] h-64 cursor-pointer shadow-2xl border border-white/5">
-                <img src={s.img} alt={s.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              <div className="group relative overflow-hidden rounded-[2rem] h-64 cursor-pointer shadow-2xl border border-white/5 bg-[#0f1c2e]">
+                <Image src={s.img} alt={s.title}
+                  width={400}
+                  height={500}
+                  className="absolute inset-0 w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => { (e.target as HTMLImageElement).src = `https://placehold.co/400x500/1A365D/white?text=${encodeURIComponent(s.title)}`; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#12223a] via-[#12223a]/20 to-transparent group-hover:from-[#F68B1E]/90 transition-all duration-500" />
@@ -443,7 +446,7 @@ function Services() {
   );
 }
 
-// ─── Orthodontics Feature ─────────────────────────────────────────────────────
+// ─── Orthodontics Feature 
 function OrthoSection() {
   return (
     <section id="ortho" className="py-28 bg-[#1a3050]/50 border-y border-white/5 relative overflow-hidden">
@@ -451,7 +454,7 @@ function OrthoSection() {
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <FadeIn delay={0.2} className="lg:order-2">
             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 group">
-              <img src="/image/orthodontics-hero.jpg" alt="Invisalign Clear Aligners"
+              <img src="/image/orthodontics-hero.png" alt="Invisalign Clear Aligners"
                 className="w-full h-[550px] object-cover transition-transform duration-1000 group-hover:scale-110"
                 onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/800x600/00AEEF/white?text=Invisalign+Technology'; }} />
               <div className="absolute inset-0 bg-gradient-to-l from-[#1A365D]/40 to-transparent" />
@@ -486,19 +489,19 @@ function OrthoSection() {
   );
 }
 
-// ─── Team ─────────────────────────────────────────────────────────────────────
+// ─── Team
 const team = [
   {
     name: 'Dr. Shruti Chahal',
     role: 'Lead Dentist & Clinical Director',
-    img: '/image/dr-shruti.jpg',
+    img: '/group-1.jpeg',
     bio: 'Dr. Shruti Chahal is passionate about enhancing smiles through modern dental treatments. With a keen eye for aesthetics and dedication to advanced education, she provides comprehensive, patient-centered care.',
     credentials: ['University of Alberta', 'Invisalign Expert', 'Laser Dentistry Specialist'],
   },
   {
     name: 'Clinical Team',
     role: 'Support & Hygiene',
-    img: '/image/team.jpg',
+    img: '/group-1.jpeg',
     bio: 'Our experienced staff is dedicated to making every visit comfortable. From routine cleanings to specialist support, we are here for your health.',
     credentials: ['RDH Certified', 'Surgical Assistants', 'Pediatric Patient Care'],
   },
@@ -634,9 +637,9 @@ function VideoTestimonials() {
 
 // ─── Blog ─────────────────────────────────────────────────────────────────────
 const blogs = [
-  { title: 'Adult Invisalign in Calgary', snippet: 'Which orthodontic treatment is right for you? Orthodontics for adults is more comfortable than ever.', img: '/image/blog-1.jpg', date: 'March 2026', category: 'ORTHODONTICS' },
-  { title: 'Cosmetic Financing', snippet: 'Dream smiles made affordable. Explore our flexible payment plans for implants and aesthetics.', img: '/image/blog-2.jpg', date: 'Feb 2026', category: 'FINANCING' },
-  { title: 'Stop Bleeding Gums', snippet: 'Bleeding gums can indicate periodontal disease. Learn the steps to restore your gum health today.', img: '/image/blog-3.jpg', date: 'Feb 2026', category: 'GUM HEALTH' },
+  { title: 'Adult Invisalign in Calgary', snippet: 'Which orthodontic treatment is right for you? Orthodontics for adults is more comfortable than ever.', img: '/image/blog-1.png', date: 'March 2026', category: 'ORTHODONTICS' },
+  { title: 'Cosmetic Financing', snippet: 'Dream smiles made affordable. Explore our flexible payment plans for implants and aesthetics.', img: '/image/blog-2.png', date: 'Feb 2026', category: 'FINANCING' },
+  { title: 'Stop Bleeding Gums', snippet: 'Bleeding gums can indicate periodontal disease. Learn the steps to restore your gum health today.', img: '/image/blog-3.png', date: 'Feb 2026', category: 'GUM HEALTH' },
 ];
 
 function Blog() {

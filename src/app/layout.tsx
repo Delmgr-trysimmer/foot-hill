@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Foothill Dentistry | Calgary, AB | Dr. Shruti Chahal",
-  description: "Welcome to Foothill Dentistry – Your Home for Dental Care in Calgary, AB. Patient-focused general dental care for children and adults.",
+  description: "Welcome to Foothill Dentistry - Your Home for Dental Care in Calgary, AB. Patient-focused general dental care for children and adults.",
 };
 
 export default function RootLayout({
